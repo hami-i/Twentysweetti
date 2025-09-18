@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Twentysweetti</title>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700;800&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Waffle:wght@400;700;800&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
     <style>
          :root {
             --pink: #ffd6e0;
@@ -339,7 +339,7 @@
 <body>
     <aside class="sidebar">
         <div class="brand">
-            <img src="logo.jpg" alt="Logo" class="logo-img">
+            <img src="image/logo.jpg" alt="Logo" class="logo-img">
             <strong style="font-family:'Baloo 2';font-size:32.5px">Twentysweetti</strong>
         </div>
         <div class="welcome" id="welcomeText">Welcome To<br>
@@ -410,23 +410,29 @@
         }
 
         const pages = {
-            home: `<h2 class="section-title">Welcome</h2><p>ยินดีต้อนรับเข้าสู่ร้านไอติม <b>Twentysweetti</b> 🍦</p>`,
+            home: `<h2 class="section-title">Welcome</h2>
+                    <div style="text-align:center; margin-top:20px;">
+                                <img src="image/logo.jpg" alt="Logo" style="width:500px; height:500px; border-radius:50%; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                    <p style="text-align:center; font-size:32px; margin-top:32px;">
+                    ยินดีต้อนรับเข้าสู่ร้านไอติม <b style="font-size:28px;">Twentysweetti</b> 🍦</p>`,
             product: `<h2 class="section-title">Product</h2><h3 class="section-title">Ice Cream</h3><div id="cartMessage" style="color:green;margin-bottom:12px;height:20px;"></div>
             <div class="row">
-            <div class="item"><img src="strawberry-png.webp" alt="Strawberry"><div class="label">Strawberry</div><button onclick="addToCart('Strawberry',50)">สั่งซื้อ</button></div>
-            <div class="item"><img src="matcha.png" alt="Matcha"><div class="label">Matcha</div><button onclick="addToCart('Matcha',45)">สั่งซื้อ</button></div>
-            <div class="item"><img src="mintchoc.webp" alt="MintChoc"><div class="label">MintChoc</div><button onclick="addToCart('MintChoc',50)">สั่งซื้อ</button></div>
-            <div class="item"><img src="choc.webp" alt="Chocolate"><div class="label">Chocolate</div><button onclick="addToCart('Chocolate',50)">สั่งซื้อ</button></div>
+            <div class="item"><img src="image/strawberry-png.webp" alt="Strawberry"><div class="label">Strawberry</div><button onclick="addToCart('Strawberry',50)">สั่งซื้อ</button></div>
+            <div class="item"><img src="image/matcha.png" alt="Matcha"><div class="label">Matcha</div><button onclick="addToCart('Matcha',45)">สั่งซื้อ</button></div>
+            <div class="item"><img src="image/mintchoc.webp" alt="MintChoc"><div class="label">MintChoc</div><button onclick="addToCart('MintChoc',50)">สั่งซื้อ</button></div>
+            <div class="item"><img src="image/choc.webp" alt="Chocolate"><div class="label">Chocolate</div><button onclick="addToCart('Chocolate',50)">สั่งซื้อ</button></div>
             </div>
             <h3 class="section-title">Toppings</h3>
             <div class="row">
-            <div class="item"><img src="gummy.webp" alt="Gummy"><div class="label">Gummy</div><button onclick="addToCart('Gummy',15)">สั่งซื้อ</button></div>
-            <div class="item"><img src="whip.webp" alt="Whip"><div class="label">Whip</div><button onclick="addToCart('Whip',10)">สั่งซื้อ</button></div>
-            <div class="item"><img src="strawberry.webp" alt="Strawberry"><div class="label">Strawberry</div><button onclick="addToCart('Strawberry',20)">สั่งซื้อ</button></div>
-            <div class="item"><img src="caramel.webp" alt="Caramel"><div class="label">Caramel</div><button onclick="addToCart('Caramel',25)">สั่งซื้อ</button></div>
+            <div class="item"><img src="image/gummy.webp" alt="Gummy"><div class="label">Gummy</div><button onclick="addToCart('Gummy',15)">สั่งซื้อ</button></div>
+            <div class="item"><img src="image/whip.webp" alt="Whip"><div class="label">Whip</div><button onclick="addToCart('Whip',10)">สั่งซื้อ</button></div>
+            <div class="item"><img src="image/strawberry.webp" alt="Strawberry"><div class="label">Strawberry</div><button onclick="addToCart('Strawberry',20)">สั่งซื้อ</button></div>
+            <div class="item"><img src="image/caramel.webp" alt="Caramel"><div class="label">Caramel</div><button onclick="addToCart('Caramel',25)">สั่งซื้อ</button></div>
             </div>`,
-            about: `<h2 class="section-title">About us</h2><p>ร้านไอติม Twentysweetti 🍨</p>`,
-            contact: `<h2 class="section-title">Contact</h2><p>📍 ที่อยู่: กรุงเทพฯ</p><p>📞 โทร: xxx-xxx-xxxx</p>`
+            about: `<h2 class="section-title">About us</h2><p style="text-align:left; font-size:30px; margin-top:5px;">ร้านไอติม Twentysweetti สัมผัสประสบการณ์ไอศครีมที่มากกว่าความอร่อย ด้วยมาตรฐานการผลิตที่พิถีพิถันในทุกขั้นตอน เรามุ่งมั่นมอบความสุขผ่านไอศครีมรสเลิศ ที่ผสานความสดใหม่ ความสะอาด ได้มาตรฐาน 🍨</p>`,
+            contact: `<h2 class="section-title">Contact</h2>
+                         <p style="text-align:left; font-size:30px; margin-top:5px;">📍 ที่อยู่: 991 ถนนพระรามที่ 1 แขวงปทุมวัน เขตปทุมวัน กรุงเทพมหานคร 10330</p>
+                         <p style="text-align:left; font-size:30px; margin-top:15px;">📞 โทร: 012-345-6789</p>`
         };
 
         function loadPage(p) {

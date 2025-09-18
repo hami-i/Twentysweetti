@@ -58,9 +58,15 @@ const pages = {
     home: (user) => {
         if (user) {
             return `<h2 class="section-title">Welcome, ${user}!</h2>
+                    <div style="text-align:center; margin-top:20px;">
+                                <img src="image/logo.jpg" alt="Logo" style="width:150px; height:150px; border-radius:50%; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                    <p style="text-align:center; font-size:24px; margin-top:20px;">
                     <p>ยินดีต้อนรับเข้าสู่ร้านไอติม <b>Twentysweetti</b> 🍦</p>`;
         } else {
             return `<h2 class="section-title">Welcome</h2>
+                    <div style="text-align:center; margin-top:20px;">
+                                <img src="image/logo.jpg" alt="Logo" style="width:150px; height:150px; border-radius:50%; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                    <p style="text-align:center; font-size:24px; margin-top:20px;">
                     <p>ยินดีต้อนรับเข้าสู่ร้านไอติม <b>Twentysweetti</b> 🍦</p>`;
         }
     },
