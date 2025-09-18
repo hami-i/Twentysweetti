@@ -1,0 +1,116 @@
+/* Modal Overlay */
+
+#authModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeIn 0.3s ease;
+}
+
+
+/* Modal Content */
+
+#authModal .modal-content {
+    background: #fff;
+    padding: 36px 28px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    transform: scale(0.8);
+    opacity: 0;
+    animation: scaleIn 0.3s forwards;
+}
+
+
+/* Title */
+
+#authModal h2 {
+    font-family: "Baloo 2", sans-serif;
+    color: #7a1d6b;
+    font-size: 28px;
+    margin: 0 0 12px 0;
+    text-align: center;
+}
+
+
+/* Input Fields */
+
+#authModal input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+#authModal input:focus {
+    border-color: #e85c9d;
+    box-shadow: 0 0 8px rgba(232, 92, 157, 0.3);
+    outline: none;
+}
+
+
+/* Buttons */
+
+#authModal button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    background: #ff80b5;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#authModal button:hover {
+    background: #e85c9d;
+}
+
+
+/* Toggle text */
+
+#authModal .toggle {
+    text-align: center;
+    font-size: 14px;
+    color: #e85c9d;
+    cursor: pointer;
+}
+
+
+/* Animations */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Twentysweetti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700;800&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --pink: #ffd6e0;
+            --light-pink: #ffe8ef;
+            --mint: #dff6f2;
+            --sidebar: #cfeef3;
+            --accent: #f7c9e0;
+            --text-dark: #2b2b4a;
+            --btn: #ff80b5;
+            --btn-hover: #e85c9d;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            font-family: "Montserrat", system-ui, Arial;
+            color: var(--text-dark);
+            background: linear-gradient(90deg, #f9d6e3 0%, #f6e6c4 40%, #f0dff7 100%);
+            min-height: 100vh;
+            display: flex;
+        }
+        
+        .sidebar {
+            width: 260px;
+            padding: 28px;
+            background: linear-gradient(180deg, #d9f2f9 0%, #d7f1f4 100%);
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            align-items: flex-start;
+            box-shadow: 4px 0 12px rgba(0, 0, 0, .15);
+        }
+        
+        .logo-img {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+        }
+        
+        .welcome {
+            margin-top: 6px;
+            color: #7a4a7a;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 1.1;
+        }
+        
+        .menu {
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+        
+        .menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            color: #375;
+        }
+        
+        .menu a:hover,
+        .menu a.active {
+            background: #fff3
+        }
+        
+        .auth-bottom {
+            margin-top: auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .auth-bottom .btn,
+        .logout {
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            background: var(--btn);
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 16px;
+            border: none;
+            transition: .2s;
+        }
+        
+        .auth-bottom .btn:hover,
+        .logout:hover {
+            background: var(--btn-hover)
+        }
+        
+        .main {
+            flex: 1;
+            padding: 28px 40px;
+            display: flex;
+            flex-direction: column
+        }
+        
+        h2.section-title {
+            font-family: "Baloo 2", sans-serif;
+            color: #7a1d6b;
+            font-size: 36px;
+            margin: 6px 0 18px 0;
+            text-shadow: 1px 1px 0 rgba(255, 255, 255, .6);
+        }
+        
+        .row {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            flex-wrap: wrap
+        }
+        
+        .item {
+            width: 180px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center
+        }
+        
+        .item img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+        }
+        
+        .item .label {
+            font-weight: 700;
+            color: #18406a;
+            font-family: "Baloo 2", sans-serif;
+            font-size: 20px;
+        }
+        
+        .item button {
+            background: var(--btn);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: .2s;
+        }
+        
+        .item button:hover {
+            background: var(--btn-hover)
+        }
+        
+        .order-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+        }
+        
+        .order-card table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px
+        }
+        
+        .order-card th,
+        .order-card td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            font-size: 18px;
+        }
+        
+        .order-card th {
+            background: var(--light-pink);
+            color: var(--text-dark)
+        }
+        
+        .order-card td button {
+            background: var(--btn);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .order-card td button:hover {
+            background: var(--btn-hover)
+        }
+        
+        .order-total {
+            text-align: right;
+            font-weight: 700;
+            margin-top: 10px;
+            font-size: 20px
+        }
+        
+        @media(max-width:768px) {
+            .sidebar {
+                width: 200px;
+                padding: 16px
+            }
+            .item img {
+                width: 140px;
+                height: 140px
+            }
+        }
+        
+        @media(max-width:600px) {
+            body {
+                flex-direction: column
+            }
+            .sidebar {
+                width: 100%;
+                flex-direction: row;
+                overflow-x: auto
+            }
+            .item img {
+                width: 120px;
+                height: 120px
+            }
+        }
+        /* Modal */
+        
+        #authModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        #authModal .modal-content {
+            background: linear-gradient(135deg, #ffe6f0, #ffe8d6);
+            padding: 32px;
+            border-radius: 20px;
+            max-width: 380px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
+            animation: fadeIn .3s ease-in-out;
+        }
+        
+        #authModal h2 {
+            font-family: "Baloo 2", sans-serif;
+            font-size: 28px;
+            color: #7a1d6b;
+            text-align: center;
+            margin: 0;
+        }
+        
+        #authModal input {
+            width: 100%;
+            padding: 14px 12px;
+            border-radius: 12px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            transition: .2s;
+        }
+        
+        #authModal input:focus {
+            border-color: #e85c9d;
+            outline: none;
+            box-shadow: 0 0 8px rgba(232, 92, 157, .3);
+        }
+        
+        #authModal .btn {
+            padding: 14px 0;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            background: var(--btn);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: .3s;
+        }
+        
+        #authModal .btn:hover {
+            background: var(--btn-hover);
+        }
+        
+        #authModal .toggle {
+            text-align: center;
+            font-size: 14px;
+            color: #e85c9d;
+            cursor: pointer;
+            transition: .2s;
+        }
+        
+        #authModal .toggle:hover {
+            text-decoration: underline;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="brand">
+            <img src="logo.jpg" alt="Logo" class="logo-img">
+            <strong style="font-family:'Baloo 2';font-size:32.5px">Twentysweetti</strong>
+        </div>
+        <div class="welcome" id="welcomeText">Welcome To<br>
+            <strong style="font-family:'Baloo 2';font-size:20px">Twentysweetti</strong>
+        </div>
+
+        <div class="menu">
+            <a data-page="home" class="active">🏠 Home</a>
+            <a data-page="product">🍨 Product</a>
+            <a data-page="order">🛒 Order</a>
+            <a data-page="about">ℹ️ About us</a>
+            <a data-page="contact">📩 Contact</a>
+        </div>
+
+        <div class="auth-bottom">
+            <button class="btn" id="loginBtn">Log In</button>
+            <button class="btn" id="registerBtn">Register</button>
+            <button class="btn" id="logoutBtn" style="display:none;">Log out</button>
+        </div>
+    </aside>
+
+    <main class="main" id="content"></main>
+
+    <!-- Modal -->
+    <div id="authModal">
+        <div class="modal-content">
+            <h2 id="authTitle">Log In</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button class="btn" id="authSubmit">Log In</button>
+            <p id="authMessage" style="color:red;text-align:center;margin:0;height:20px;"></p>
+            <p class="toggle" id="toggleAuth">Register</p>
+        </div>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function addToCart(item, price) {
+            cart.push({
+                name: item,
+                price: price
+            });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            const activePage = document.querySelector(".menu a.active");
+            if (activePage && activePage.dataset.page === "order") loadPage("order");
+            const msg = document.getElementById('cartMessage');
+            if (msg) {
+                msg.textContent = `${item} ถูกเพิ่มในตะกร้าแล้ว!`;
+                msg.style.color = 'green';
+                setTimeout(() => {
+                    msg.textContent = '';
+                }, 2000);
+            }
+        }
+
+        function removeFromCart(i) {
+            cart.splice(i, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            loadPage("order");
+        }
+
+        function renderOrderPage() {
+            if (cart.length === 0) return `<h2 class="section-title">Your Cart</h2><p class="empty-cart">ตะกร้าว่างเปล่า</p>`;
+            const rows = cart.map((it, i) => `<tr><td>${it.name}</td><td>${it.price}฿</td><td><button onclick="removeFromCart(${i})">ลบ</button></td></tr>`).join("");
+            const total = cart.reduce((s, it) => s + it.price, 0);
+            return `<h2 class="section-title">Your Cart</h2><div class="order-card"><table><tr><th>สินค้า</th><th>ราคา</th><th>ลบ</th></tr>${rows}</table><div class="order-total">รวมทั้งหมด: ${total} ฿</div></div>`;
+        }
+
+        const pages = {
+            home: `<h2 class="section-title">Welcome</h2><p>ยินดีต้อนรับเข้าสู่ร้านไอติม <b>Twentysweetti</b> 🍦</p>`,
+            product: `<h2 class="section-title">Product</h2><h3 class="section-title">Ice Cream</h3><div id="cartMessage" style="color:green;margin-bottom:12px;height:20px;"></div>
+            <div class="row">
+            <div class="item"><img src="strawberry-png.webp" alt="Strawberry"><div class="label">Strawberry</div><button onclick="addToCart('Strawberry',50)">สั่งซื้อ</button></div>
+            <div class="item"><img src="matcha.png" alt="Matcha"><div class="label">Matcha</div><button onclick="addToCart('Matcha',45)">สั่งซื้อ</button></div>
+            <div class="item"><img src="mintchoc.webp" alt="MintChoc"><div class="label">MintChoc</div><button onclick="addToCart('MintChoc',50)">สั่งซื้อ</button></div>
+            <div class="item"><img src="choc.webp" alt="Chocolate"><div class="label">Chocolate</div><button onclick="addToCart('Chocolate',50)">สั่งซื้อ</button></div>
+            </div>
+            <h3 class="section-title">Toppings</h3>
+            <div class="row">
+            <div class="item"><img src="gummy.webp" alt="Gummy"><div class="label">Gummy</div><button onclick="addToCart('Gummy',15)">สั่งซื้อ</button></div>
+            <div class="item"><img src="whip.webp" alt="Whip"><div class="label">Whip</div><button onclick="addToCart('Whip',10)">สั่งซื้อ</button></div>
+            <div class="item"><img src="strawberry.webp" alt="Strawberry"><div class="label">Strawberry</div><button onclick="addToCart('Strawberry',20)">สั่งซื้อ</button></div>
+            <div class="item"><img src="caramel.webp" alt="Caramel"><div class="label">Caramel</div><button onclick="addToCart('Caramel',25)">สั่งซื้อ</button></div>
+            </div>`,
+            about: `<h2 class="section-title">About us</h2><p>ร้านไอติม Twentysweetti 🍨</p>`,
+            contact: `<h2 class="section-title">Contact</h2><p>📍 ที่อยู่: กรุงเทพฯ</p><p>📞 โทร: xxx-xxx-xxxx</p>`
+        };
+
+        function loadPage(p) {
+            document.getElementById("content").innerHTML = (p === "order" ? renderOrderPage() : pages[p]);
+            document.querySelectorAll(".menu a").forEach(a => a.classList.remove("active"));
+            document.querySelector(`.menu a[data-page="${p}"]`).classList.add("active");
+        }
+
+        document.querySelectorAll(".menu a").forEach(a => a.addEventListener("click", () => loadPage(a.dataset.page)));
+        loadPage("home");
+
+        /* ---------- Auth Modal & Logout ---------- */
+        const authModal = document.getElementById('authModal'),
+            authTitle = document.getElementById('authTitle'),
+            authSubmit = document.getElementById('authSubmit'),
+            toggleAuth = document.getElementById('toggleAuth'),
+            logoutBtn = document.getElementById('logoutBtn'),
+            welcomeText = document.getElementById('welcomeText'),
+            authMessage = document.getElementById('authMessage');
+
+        function updateAuthUI() {
+            const user = localStorage.getItem('user');
+            if (user) {
+                document.getElementById('loginBtn').style.display = 'none';
+                document.getElementById('registerBtn').style.display = 'none';
+                logoutBtn.style.display = 'block';
+                welcomeText.innerHTML = `Welcome, <b>${user}</b>`;
+            } else {
+                document.getElementById('loginBtn').style.display = 'block';
+                document.getElementById('registerBtn').style.display = 'block';
+                logoutBtn.style.display = 'none';
+                welcomeText.innerHTML = `Welcome To<br><strong style="font-family:'Baloo 2';font-size:20px">Twentysweetti</strong>`;
+            }
+        }
+
+        document.getElementById('loginBtn').addEventListener('click', () => {
+            authTitle.innerText = "Log In";
+            authSubmit.innerText = "Log In";
+            toggleAuth.innerText = "Register";
+            authModal.style.display = "flex";
+            authMessage.textContent = '';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        });
+
+        document.getElementById('registerBtn').addEventListener('click', () => {
+            authTitle.innerText = "Register";
+            authSubmit.innerText = "Register";
+            toggleAuth.innerText = "Log In";
+            authModal.style.display = "flex";
+            authMessage.textContent = '';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        });
+
+        toggleAuth.addEventListener('click', () => {
+            if (authTitle.innerText === "Log In") {
+                authTitle.innerText = "Register";
+                authSubmit.innerText = "Register";
+                toggleAuth.innerText = "Log In";
+            } else {
+                authTitle.innerText = "Log In";
+                authSubmit.innerText = "Log In";
+                toggleAuth.innerText = "Register";
+            }
+            authMessage.textContent = '';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        });
+
+        authModal.addEventListener('click', e => {
+            if (e.target === authModal) authModal.style.display = "none";
+        });
+
+        authSubmit.addEventListener('click', () => {
+            const u = document.getElementById('username').value.trim(),
+                p = document.getElementById('password').value.trim();
+            if (!u || !p) {
+                authMessage.textContent = "กรุณากรอกข้อมูลให้ครบ!";
+                authMessage.style.color = "red";
+                return;
+            }
+            localStorage.setItem('user', u);
+            authMessage.textContent = `${authSubmit.innerText} สำเร็จ: ${u}`;
+            authMessage.style.color = "green";
+            setTimeout(() => {
+                authModal.style.display = "none";
+                authMessage.textContent = '';
+            }, 2000);
+            updateAuthUI();
+        });
+
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('user');
+            cart = [];
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateAuthUI();
+            loadPage('home');
+        });
+
+        updateAuthUI();
+    </script>
+</body>
+
+</html>
